@@ -2,6 +2,11 @@
  
 EWD.js Interface for VistA: RPC Wrapper
 
+## Acknowledgements
+
+This project was inspired by and the efforts of and builds on the work of 
+Nikolay Topalov, Joel Mewton & SAN Business Consultants
+
 ## Installation
 
     npm install ewd-vista-rpc
