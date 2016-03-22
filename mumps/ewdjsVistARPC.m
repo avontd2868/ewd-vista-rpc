@@ -32,7 +32,8 @@ test()
  s ok=$$RPCEXECUTE("^TMP($j)")
  QUIT ok
  ;
-RPCEXECUTE(TMP) ;
+ ;RPCEXECUTE(TMP) ;
+RPCEXECUTE(TMP, sessionId, sessionGlobal) ;
  n ix
  s ix=$increment(^rob)
  ;m ^rob(ix)=@TMP
@@ -130,6 +131,12 @@ RPCEXECUTE(TMP) ;
  s ^rob(ix,"executed")=""
  M @TMP@("result","value")=tResult
  S @TMP@("result","type")=$$EXTERNAL^DILFD(8994,.04,,rpc("resultType"))
+ I @TMP@("result","type")="GLOBAL ARRAY",$g(sessionId)'="" d
+ . n sessRef
+ . s sessRef="^"_sessionGlobal_"(""session"","_sessionId_",""GLOBAL_ARRAY"")"
+ . s X="K "_sessRef X X
+ . s X="M "_sessRef_"="_tResult X X
+ . k @TMP@("result","value")
  S trash=$$success()
  Q "OK"
  ;
