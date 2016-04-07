@@ -33,7 +33,7 @@ test()
  QUIT ok
  ;
  ;RPCEXECUTE(TMP) ;
-RPCEXECUTE(TMP, sessionId, sessionGlobal) ;
+RPCEXECUTE(TMP,sessionId,sessionGlobal) ;
  n ix
  s ix=$increment(^rob)
  ;m ^rob(ix)=@TMP
